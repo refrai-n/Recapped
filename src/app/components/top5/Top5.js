@@ -33,14 +33,15 @@ export const Top5 = () => {
 
 	return (
 		<Container>
-			{category !== '...' && isSuccess ? (
+			{isSuccess && top5 ? (
 				shortenedArr(top5).map((title, index) => (
 					<T key={index}>"{title}"</T>
 				))
-			) : (
-				<T>NO DATA AVAILABLE</T>
-			)}
-			{isLoading && category !== '...' ?  (<><Lbg></Lbg><L>LOADING <br/> ...</L></>) : null}
+			) : category !== '' ?(
+				<T>SOMETHING WENT WRONG! <br/> 
+				<br/> Make sure the entered subreddit is valid.</T>
+			): <T>Select a category from the menu below or use the search bar:</T>}
+			{isLoading && category !== '' ?  (<><Lbg></Lbg><L>LOADING <br/> ...</L></>) : null}
 		</Container>
 	);
 };

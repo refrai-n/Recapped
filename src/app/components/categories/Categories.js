@@ -9,7 +9,6 @@ import { setCategory } from '../../features/categorySlice';
 
 export const Categories = () => {
 	const dispatch = useDispatch();
-	const { category } = useSelector((state) => state.category);
 
 	const handleIcoClick = (event) => {
 		const { id } = event.target;
@@ -33,7 +32,6 @@ export const Categories = () => {
 
 	return (
 		<Container>
-			{category === '...' ? <T>Select a category below or use the search bar:</T> : null}
 			<Squircle>
 				<C>
 					<Dot></Dot>
