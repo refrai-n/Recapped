@@ -89,6 +89,10 @@ const Ico = styled.img`
 	height: 25px;
 	opacity: 0;
 	transition: all 0.2s ease-in-out;
+	cursor: pointer;
+	&:hover{
+		transform: scale(1.2);
+	}
 	${'span:hover + &'} {
 		opacity: 1;
 	}
@@ -103,7 +107,7 @@ const Dot = styled.span`
 	border-radius: 2rem;
 	filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.43));
 	z-index: 4;
-	transition: all 0.2s ease-in-out;
+	transition: all 0.15s ease-in-out;
 	opacity: 1;
 	&:hover {
 		transform: translateY(30px);

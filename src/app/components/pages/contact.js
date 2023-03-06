@@ -103,14 +103,21 @@ const X = styled.svg`
 	right: 1;
 	margin-bottom: 80vh;
 	cursor: pointer;
+	transition: all 0.5s ease-in-out;
+		:hover {
+			transform: scale(1.5);
+		}
 `;
 
 const Icos = styled.div`
 	display: flex;
 	justify-content: space-between;
 	gap: 5rem;
-
-	a{
+	a {
 		color: var(--dark);
+		transition: all 0.5s ease-in-out;
+		:hover {
+			transform: scale(1.5);
+		}
 	}
 `;

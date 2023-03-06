@@ -5,24 +5,40 @@ import { setPage } from '../../features/pagesSlice';
 export const Navbar = () => {
 	const dispatch = useDispatch();
 
-	const setAbout = ()=>{
+	const setAbout = () => {
 		dispatch(setPage('about'));
-	}
+	};
 
-	const setContact = ()=>{
+	const setContact = () => {
 		dispatch(setPage('contact'));
-	}
+	};
+
+	const listIco = (
+		<svg
+			xmlns='http://www.w3.org/2000/svg'
+			width='35'
+			height='35'
+			fill='currentColor'
+			viewBox='0 0 16 16'
+		>
+			<path
+				fillRule='evenodd'
+				d='M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z'
+			/>
+		</svg>
+	);
 
 	return (
 		<Nav>
-			<Logo>
+			<Logo className='logo'>
 				<a href='#'>Recapped.</a>{' '}
 			</Logo>
-			<Circle></Circle>
-			<Menu>
-				<I onClick={setAbout}>about</I>
-				<I onClick={setContact}>contact</I>
-			</Menu>
+			<Circle className='circle'></Circle>
+			<Pages>
+				<Ico className='listIco'>{listIco}</Ico>
+				<I onClick={setAbout} className='page'>about</I>
+				<I onClick={setContact} className='page'>contact</I>
+			</Pages>
 		</Nav>
 	);
 };
@@ -38,6 +54,28 @@ const Nav = styled.nav`
 	justify-content: center;
 	overflow: hidden;
 	position: relative;
+
+	@media screen and (max-width: 688px) {
+		.page{
+			display: none;
+		}
+		.listIco{
+			display: block;
+			right: 0;
+		}
+	}
+
+	@media screen and (max-width: 465px) {
+		.logo{
+			left: 0;
+			margin-left: 1rem;
+		}
+		.circle{
+			left: 0;
+		}
+		
+	}
+	
 `;
 
 const Logo = styled.h1`
@@ -51,7 +89,6 @@ const Logo = styled.h1`
 		color: var(--white);
 		text-decoration: none;
 		transition: all;
-
 		:hover {
 			color: white;
 			transition-duration: 400ms;
@@ -81,7 +118,7 @@ const Circle = styled.div`
 	}
 `;
 
-const Menu = styled.ul`
+const Pages = styled.ul`
 	position: absolute;
 	right: 4rem;
 	margin: 0;
@@ -103,4 +140,9 @@ const I = styled.li`
 		transition-duration: 400ms;
 		transition-timing-function: ease-in-out;
 	}
+`;
+
+const Ico = styled.div`
+	display: none;
+	z-index: 5;
 `;
