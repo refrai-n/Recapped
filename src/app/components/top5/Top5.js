@@ -40,6 +40,7 @@ export const Top5 = () => {
 			) : (
 				<T>NO DATA AVAILABLE</T>
 			)}
+			{isLoading ?  (<><Lbg></Lbg><L>LOADING <br/> ...</L></>) : null}
 		</Container>
 	);
 };
@@ -60,4 +61,20 @@ const Container = styled.div`
 
 const T = styled.a`
 	margin-top: 2rem;
+`;
+
+const Lbg = styled.div`
+	position: absolute;
+	justify-self: center;
+	align-self: center;
+	width: 100%;
+	height: 90%;
+	background-color: rgba(0,0,0,0.7);
+`;
+
+const L = styled.h1`
+	position: absolute;
+	text-align: center;
+	color: var(--pink);
+	
 `;
