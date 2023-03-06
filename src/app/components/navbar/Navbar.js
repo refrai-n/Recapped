@@ -1,7 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { useDispatch } from 'react-redux';
+import { setPage } from '../../features/pagesSlice';
 export const Navbar = () => {
+	const dispatch = useDispatch();
+
+	const setAbout = ()=>{
+		dispatch(setPage('about'));
+	}
+
+	const setContact = ()=>{
+		dispatch(setPage('contact'));
+	}
+
 	return (
 		<Nav>
 			<Logo>
@@ -9,12 +20,8 @@ export const Navbar = () => {
 			</Logo>
 			<Circle></Circle>
 			<Menu>
-				<I>
-					<a href='#'>about</a>{' '}
-				</I>
-				<I>
-					<a href='#'>contact</a>
-				</I>
+				<I onClick={setAbout}>about</I>
+				<I onClick={setContact}>contact</I>
 			</Menu>
 		</Nav>
 	);
@@ -79,18 +86,6 @@ const Menu = styled.ul`
 	right: 4rem;
 	margin: 0;
 	display: flex;
-
-	a {
-		color: var(--white);
-		text-decoration: none;
-		transition: all;
-
-		:hover {
-			color: var(--dark);
-			transition-duration: 400ms;
-			transition-timing-function: ease-in-out;
-		}
-	}
 `;
 
 const I = styled.li`
@@ -98,4 +93,14 @@ const I = styled.li`
 	font-weight: 600;
 	font-size: 1.3rem;
 	margin-left: 3rem;
+
+	color: var(--white);
+	text-decoration: none;
+	transition: all;
+	cursor: pointer;
+	:hover {
+		color: var(--dark);
+		transition-duration: 400ms;
+		transition-timing-function: ease-in-out;
+	}
 `;

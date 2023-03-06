@@ -7,21 +7,22 @@ export const Searchbar = () => {
 	const [inputValue, setInputValue] = useState('');
 	const dispatch = useDispatch();
 
-	const handleChange = e=>{
-		setInputValue(e.target.value)
-	}
+	const handleChange = (e) => {
+		setInputValue(e.target.value);
+	};
 
-	const handleSearchClick = ()=> {
-		dispatch(setCategory(inputValue))
-	}
-
+	const handleSearchClick = () => {
+		if (inputValue) {
+			dispatch(setCategory(inputValue));
+		}
+	};
 
 	return (
 		<Container>
 			<I
 				type='text'
 				name='search'
-				placeholder='Enter a subreddit (e.g: "music")'
+				placeholder='Enter a subreddit (e.g: "quotes")'
 				value={inputValue}
 				onChange={handleChange}
 			/>
@@ -52,9 +53,11 @@ const Container = styled.div`
 	cursor: pointer;
 	transition: 0.7s ease-in-out;
 	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
-
 	&:hover {
 		width: 17rem;
+	}
+	&:focus-within {
+		border: 1px solid var(--pink);
 	}
 `;
 
