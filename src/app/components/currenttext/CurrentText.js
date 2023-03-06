@@ -13,7 +13,7 @@ export const CurrentText = () => {
 };
 
 const Container = styled.div`
-	margin: 4rem;
+	margin: 2rem;
 	text-align: center;
 `;
 const T = styled.p`

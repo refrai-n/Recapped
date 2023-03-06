@@ -4,10 +4,12 @@ import TechIco from '../../resources/tech.png';
 import PoliIco from '../../resources/politics.png';
 import GameIco from '../../resources/game.png';
 import EnvIco from '../../resources/env.png';
-import { useDispatch } from 'react-redux';
-import {setCategory} from '../../features/categorySlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCategory } from '../../features/categorySlice';
+
 export const Categories = () => {
 	const dispatch = useDispatch();
+	const { category } = useSelector((state) => state.category);
 
 	const handleIcoClick = (event) => {
 		const { id } = event.target;
@@ -31,6 +33,7 @@ export const Categories = () => {
 
 	return (
 		<Container>
+			{category === '...' ? <T>Select a category below or use the search bar:</T> : null}
 			<Squircle>
 				<C>
 					<Dot></Dot>
@@ -54,7 +57,9 @@ export const Categories = () => {
 };
 
 //STYLED COMPONENTS
-const Container = styled.div``;
+const Container = styled.div`
+	text-align: center;
+`;
 
 const Squircle = styled.div`
 	width: 15rem;
@@ -65,6 +70,12 @@ const Squircle = styled.div`
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+`;
+
+const T = styled.a`
+	font-size: 1.2rem;
+	color: var(--dark);
+	line-height: 4rem;
 `;
 
 const C = styled.span`

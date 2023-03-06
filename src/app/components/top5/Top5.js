@@ -40,7 +40,7 @@ export const Top5 = () => {
 			) : (
 				<T>NO DATA AVAILABLE</T>
 			)}
-			{isLoading ?  (<><Lbg></Lbg><L>LOADING <br/> ...</L></>) : null}
+			{isLoading && category !== '...' ?  (<><Lbg></Lbg><L>LOADING <br/> ...</L></>) : null}
 		</Container>
 	);
 };
@@ -68,7 +68,7 @@ const Lbg = styled.div`
 	justify-self: center;
 	align-self: center;
 	width: 100%;
-	height: 90%;
+	height: 100%;
 	background-color: rgba(0,0,0,0.7);
 `;
 
