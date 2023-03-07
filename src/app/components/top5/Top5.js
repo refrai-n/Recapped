@@ -48,7 +48,7 @@ export const Top5 = () => {
 			) : category !== '' ? (
 				<T>
 					SOMETHING WENT WRONG! <br />
-					<br /> Make sure the entered subreddit is valid.
+					<br /> Make sure the entered subreddit is valid and public.
 				</T>
 			) : (
 				<T>
