@@ -58,7 +58,7 @@ export const Contact = () => {
 				<a href='https://twitter.com/refrai_n' target={'_blank'}>
 					{Twitter}
 				</a>
-				<a href='https://github.com/refrain-n' target={'_blank'}>
+				<a href='https://github.com/refrai-n' target={'_blank'}>
 					{GitHub}
 				</a>
 			</Icos>

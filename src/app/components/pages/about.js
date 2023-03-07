@@ -24,7 +24,7 @@ export const About = () => {
 			</Desc>
 			<More>
 				Made by{' '}
-				<a href='https://github.com/refrain-n' target={'_blank'}>
+				<a href='https://github.com/refrai-n' target={'_blank'}>
 					<Pink> Refrain</Pink>
 				</a>{' '}
 				with React and Redux. <br />
