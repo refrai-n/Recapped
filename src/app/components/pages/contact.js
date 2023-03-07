@@ -52,7 +52,9 @@ export const Contact = () => {
 		<Container page={page}>
 			<h1>CONTACT</h1>
 			<Icos>
-				<a href='mailto:email@gmail.com'>{Email}</a>
+				<a href='mailto:refrain.dev@gmail.com' className='email'>
+					{Email}
+				</a>
 				<a href='https://twitter.com/refrai_n' target={'_blank'}>
 					{Twitter}
 				</a>
@@ -104,9 +106,9 @@ const X = styled.svg`
 	margin-bottom: 80vh;
 	cursor: pointer;
 	transition: all 0.5s ease-in-out;
-		:hover {
-			transform: scale(1.5);
-		}
+	:hover {
+		transform: scale(1.5);
+	}
 `;
 
 const Icos = styled.div`

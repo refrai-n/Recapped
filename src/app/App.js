@@ -9,6 +9,8 @@ import { Contact } from './components/pages/contact';
 import { BurgerMenu } from './components/burgerMenu/BurgerMenu';
 import React from 'react';
 
+
+
 const App = () => {
 	return (
 		<Container>

@@ -13,6 +13,9 @@ export const getTop5 = createAsyncThunk(
 			const titlesArray = [];
 			for (let i = 0; i < 5; i++) {
 				titlesArray.push(response[i].data.title);
+				titlesArray.push(
+					'https://www.reddit.com/' + response[i].data.permalink
+				);
 			}
 			return titlesArray;
 		} catch (error) {

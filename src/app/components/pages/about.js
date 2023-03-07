@@ -16,7 +16,9 @@ export const About = () => {
 		<Container page={page}>
 			<h1>ABOUT</h1>
 			<Desc>
-				Displays Top 5 posts from reddit in the last 24 hour. <br />
+				Displays Top 5 posts from reddit in the last 24 hours. <br />
+				Click on a title to open the original post. <br/>
+				<br/>
 				Use the menu at the bottom to select from famous pre-set
 				subreddits or select your own using the search bar.
 			</Desc>
@@ -93,4 +95,5 @@ const More = styled.p`
 
 const Pink = styled.span`
 	color: var(--pink);
+	text-shadow: 0.1rem 0.1rem 2px rgba(1,1,1,0.3);
 `;
