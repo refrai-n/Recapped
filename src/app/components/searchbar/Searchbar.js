@@ -13,7 +13,7 @@ export const Searchbar = () => {
 
 	const handleSearchClick = () => {
 		if (inputValue) {
-			dispatch(setCategory(inputValue));
+			dispatch(setCategory(inputValue.trim()));
 		}
 	};
 
