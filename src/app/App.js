@@ -6,13 +6,14 @@ import { Top5 } from './components/top5/Top5';
 import { Categories } from './components/categories/Categories';
 import { About } from './components/pages/about';
 import { Contact } from './components/pages/contact';
-
+import { BurgerMenu } from './components/burgerMenu/BurgerMenu';
 import React from 'react';
 
 const App = () => {
 	return (
 		<Container>
 			<Navbar />
+			<BurgerMenu />
 			<About />
 			<Contact />
 			<Searchbar />

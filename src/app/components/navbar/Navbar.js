@@ -1,16 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setPage } from '../../features/pagesSlice';
+import { setIsOpen } from '../../features/burgerMenuSlice';
 export const Navbar = () => {
 	const dispatch = useDispatch();
-
+	const { isOpen } = useSelector((state) => state.burgerMenu);
 	const setAbout = () => {
 		dispatch(setPage('about'));
 	};
 
 	const setContact = () => {
 		dispatch(setPage('contact'));
+	};
+
+	const handleBurgerClick = () => {
+		(isOpen ? dispatch(setIsOpen(false)) : dispatch(setIsOpen(true)) )
+		
 	};
 
 	const listIco = (
@@ -35,9 +41,15 @@ export const Navbar = () => {
 			</Logo>
 			<Circle className='circle'></Circle>
 			<Pages>
-				<Ico className='listIco'>{listIco}</Ico>
-				<I onClick={setAbout} className='page'>about</I>
-				<I onClick={setContact} className='page'>contact</I>
+				<Ico className='listIco' onClick={handleBurgerClick}>
+					{listIco}
+				</Ico>
+				<I onClick={setAbout} className='page'>
+					about
+				</I>
+				<I onClick={setContact} className='page'>
+					contact
+				</I>
 			</Pages>
 		</Nav>
 	);
@@ -56,26 +68,24 @@ const Nav = styled.nav`
 	position: relative;
 
 	@media screen and (max-width: 688px) {
-		.page{
+		.page {
 			display: none;
 		}
-		.listIco{
+		.listIco {
 			display: block;
 			right: 0;
 		}
 	}
 
 	@media screen and (max-width: 465px) {
-		.logo{
+		.logo {
 			left: 0;
 			margin-left: 1rem;
 		}
-		.circle{
+		.circle {
 			left: 0;
 		}
-		
 	}
-	
 `;
 
 const Logo = styled.h1`
@@ -144,5 +154,6 @@ const I = styled.li`
 
 const Ico = styled.div`
 	display: none;
+	margin-right: -2rem;
 	z-index: 5;
 `;
