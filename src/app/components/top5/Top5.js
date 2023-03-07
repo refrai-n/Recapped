@@ -7,7 +7,6 @@ export const Top5 = () => {
 	const top5 = useSelector((state) => state.top5.data);
 	const isLoading = useSelector((state) => state.top5.isLoading);
 	const isSuccess = useSelector((state) => state.top5.isSuccess);
-	const isRejected = useSelector((state) => state.top5.isRejected);
 	const { category } = useSelector((store) => store.category);
 	const dispatch = useDispatch();
 

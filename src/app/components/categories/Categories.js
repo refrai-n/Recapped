@@ -4,7 +4,7 @@ import TechIco from '../../resources/tech.png';
 import PoliIco from '../../resources/politics.png';
 import GameIco from '../../resources/game.png';
 import EnvIco from '../../resources/env.png';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setCategory } from '../../features/categorySlice';
 
 export const Categories = () => {
@@ -70,12 +70,6 @@ const Squircle = styled.div`
 	align-items: center;
 `;
 
-const T = styled.a`
-	font-size: 1.2rem;
-	color: var(--dark);
-	line-height: 4rem;
-`;
-
 const C = styled.span`
 	display: flex;
 	flex-direction: column;
@@ -90,7 +84,7 @@ const Ico = styled.img`
 	opacity: 0;
 	transition: all 0.2s ease-in-out;
 	cursor: pointer;
-	&:hover{
+	&:hover {
 		transform: scale(1.2);
 	}
 	${'span:hover + &'} {
