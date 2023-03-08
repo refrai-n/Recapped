@@ -15,8 +15,7 @@ export const Navbar = () => {
 	};
 
 	const handleBurgerClick = () => {
-		(isOpen ? dispatch(setIsOpen(false)) : dispatch(setIsOpen(true)) )
-		
+		isOpen ? dispatch(setIsOpen(false)) : dispatch(setIsOpen(true));
 	};
 
 	const listIco = (
@@ -24,13 +23,25 @@ export const Navbar = () => {
 			xmlns='http://www.w3.org/2000/svg'
 			width='35'
 			height='35'
-			fill='currentColor'
+			fill='#eaeaea'
 			viewBox='0 0 16 16'
 		>
 			<path
 				fillRule='evenodd'
 				d='M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z'
 			/>
+		</svg>
+	);
+
+	const closeIco = (
+		<svg
+			xmlns='http://www.w3.org/2000/svg'
+			width='35'
+			height='35'
+			fill='#eaeaea'
+			viewBox='0 0 16 16'
+		>
+			<path d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z' />
 		</svg>
 	);
 
@@ -41,9 +52,20 @@ export const Navbar = () => {
 			</Logo>
 			<Circle className='circle'></Circle>
 			<Pages>
-				<Ico className='listIco' onClick={handleBurgerClick}>
+				<Burger
+					className='listIco'
+					isOpen={isOpen}
+					onClick={handleBurgerClick}
+				>
 					{listIco}
-				</Ico>
+				</Burger>
+				<CloseBurger
+					className='closeIco'
+					isOpen={isOpen}
+					onClick={handleBurgerClick}
+				>
+					{closeIco}
+				</CloseBurger>
 				<I onClick={setAbout} className='page'>
 					about
 				</I>
@@ -70,10 +92,6 @@ const Nav = styled.nav`
 	@media screen and (max-width: 688px) {
 		.page {
 			display: none;
-		}
-		.listIco {
-			display: block;
-			right: 0;
 		}
 	}
 
@@ -152,8 +170,32 @@ const I = styled.li`
 	}
 `;
 
-const Ico = styled.div`
+const Burger = styled.div`
 	display: none;
+	@media screen and (max-width: 688px) {
+		& {
+			display: ${(props) => (!props.isOpen ? 'block' : 'none')};
+		}
+	}
 	margin-right: -2rem;
 	z-index: 5;
+	transition: all 0.5s ease-in-out;
+		:hover {
+			transform: scale(1.3);
+		}
+`;
+
+const CloseBurger = styled.div`
+	display: none;
+	@media screen and (max-width: 688px) {
+		& {
+			display: ${(props) => (props.isOpen ? 'block' : 'none')};
+		}
+	}
+	margin-right: -2rem;
+	z-index: 6;
+	transition: all 0.5s ease-in-out;
+		:hover {
+			transform: scale(1.3);
+		}
 `;
